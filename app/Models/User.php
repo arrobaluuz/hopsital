@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+
+class User extends Eloquent /* Authenticatable */
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,6 +19,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $connection = 'mongodb';
+    protected $collection = 'users';
     protected $fillable = [
         'name',
         'email',
