@@ -306,19 +306,16 @@ The above copyright notice and this permission notice shall be included in all c
                                     <tr>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Creation Date</th>
-                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                                                            <tr>
-                                            <td>Admin Admin</td>
-                                            <td>
-                                                <a href="mailto:admin@paper.com">admin@paper.com</a>
-                                            </td>
-                                            <td>25/02/2020 11:37</td>
-                                                                                    </tr>
-                                                                    </tbody>
+                                    @foreach($users as $user)
+                                        <tr>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                         <div class="card-footer py-4">
