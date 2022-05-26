@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
+
+	Route::prefix('dr')->group(function(){
+		Route::get('index', [DoctorController::class, 'index'])->name('doctor.index');
+		Route::post('store', [DoctorController::class, 'store'])->name('doctor.store');
+		Route::put('update', [DoctorController::class, 'update'])->name('doctor.update');
+	});
+
 });
 

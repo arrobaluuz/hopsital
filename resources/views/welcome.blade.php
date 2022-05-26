@@ -2,7 +2,6 @@
     'class' => 'login-page',
     'elementActive' => ''
 ])
-
 @section('content')
     <div class="content col-md-12 ml-auto mr-auto">
         <div class="header py-5 pb-7 pt-lg-9">
@@ -10,10 +9,9 @@
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-12 pt-5">
-                            <h1 class="@if(Auth::guest()) text-white @endif">{{ __('Welcome to Paper Dashboard Laravel Live Preview.') }}</h1>
-
+                            <h1 class="@if(Auth::guest()) text-white @endif">ANSEZ</h1>
                             <p class="@if(Auth::guest()) text-white @endif text-lead mt-3 mb-0">
-                                {{ __('Log in and see how you can save more than 90 hours of work with CRUDs for managing: #users, #roles, #items, #categories, #tags and more.') }}
+                                Los mejores médicos del mundo son: el doctor dieta, el doctor reposo y el doctor alegría. (Jonathan Swift)  
                             </p>
                         </div>
                     </div>

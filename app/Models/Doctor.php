@@ -6,8 +6,9 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Doctor extends Eloquent
 {
+    public $timestamps=false;
     protected $connection = 'mongodb';
-    protected $collection = 'doctores';
+    protected $collection = 'doctors';
     protected $fillable = [
         'nombres',
         'apellidos',
