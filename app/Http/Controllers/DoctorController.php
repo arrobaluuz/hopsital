@@ -15,7 +15,6 @@ class DoctorController extends Controller
     }
     public function store(Request $request)
     {
-        return $request;
         try {
             $newDoctor = new Doctor;
             $newDoctor -> nombres = $request-> nombres;
@@ -26,8 +25,7 @@ class DoctorController extends Controller
             $newDoctor -> telefono = $request-> telefono;
             $newDoctor -> especialidad = $request-> especialidad;
             $newDoctor -> save();
-
-            session()->flash('success','Doctor actualizado.');
+            session()->flash('success','Doctor agregado');
             return back()->withInput();
 
         } catch (\Throwable $th) {
@@ -49,7 +47,7 @@ class DoctorController extends Controller
             $updateDoctor -> especialidad = $request-> especialidad;
             $updateDoctor -> update();
 
-            session()->flash('success','Doctor agregado.');
+            session()->flash('success','Doctor actualizado');
             return back()->withInput();
 
         } catch (\Throwable $th) {

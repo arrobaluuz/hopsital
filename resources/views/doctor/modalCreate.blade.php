@@ -24,7 +24,9 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="curp" placeholder="CURP" type="text" required maxlength="18">
+                        <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="curp" placeholder="CURP" type="text" required maxlength="18"
+                        onkeypress="return (event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122 || event.charCode >= 65 && event.charCode <= 90 )"
+                        style="text-transform:uppercase;">
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -32,7 +34,9 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control {{ $errors->has('cedula') ? ' is-invalid' : '' }}" name="cedula" placeholder="Cédula" type="text" required  minlength="7" maxlength="8">
+                        <input class="form-control {{ $errors->has('cedula') ? ' is-invalid' : '' }}" name="cedula" placeholder="Cédula" type="text" required  minlength="7" maxlength="8"
+                        onkeypress="return (event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122 || event.charCode >= 65 && event.charCode <= 90 )"
+                        style="text-transform:uppercase;">
                         @if ($errors->has('cedula'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
                                 <strong>{{ $errors->first('cedula') }}</strong>
@@ -53,9 +57,10 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control" name="telefono" placeholder="Telefono" type="text">
+                        <input class="form-control" name="telefono" placeholder="Telefono" type="text" maxlength="10"
+                        onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                     </div>
-                    <select id="especialidad-select" class="form-select" aria-label="Default select example" style="width:100%; height: 34px !important;padding: 0 0 0 12px !important;line-height: 32px !important">
+                    <select id="especialidad-select" name="especialidad" class="form-select" aria-label="Default select example" style="width:100%; height: 34px !important;padding: 0 0 0 12px !important;line-height: 32px !important">
                         <option></option>
                         <option value="1">Cardiología</option>
                         <option value="2">Cirugía plastica</option>

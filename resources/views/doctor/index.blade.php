@@ -13,7 +13,7 @@
                     <div class="card-body all-icons">
                         <div class="row">
                             <div class="col-12 text-right">
-                                <button type="button" class="btn-redondo btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn-redondo btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" data-action="create">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </button>
                             </div>
@@ -41,7 +41,7 @@
                                 <td class="text-center">{{$doctor->correo}}</td>
                                 <td class="text-center">{{$doctor->telefono}}</td>
                                 <td class="text-center">
-                                    <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-object="{{$doctor}}">
+                                    <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-object="{{$doctor}}" data-action="update">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
                                 </td>
@@ -102,8 +102,12 @@
 		    modalEdit.addEventListener('show.bs.modal',function(e) {
                 //Obtenemos la propiedades del evento. data
                 var $this = $(e.relatedTarget);
-                const doctor = $this.data('object');
-                console.log(doctor)
+                const action = $this.data('action');
+                if(action == 'update'){
+                    const doctor = $this.data('object');
+                    console.log(doctor)
+                }
+                console.log(action)
             });
     </script>
 @endpush
