@@ -13,9 +13,9 @@
                             <i class="nc-icon nc-tv-2"></i>
                         </div>
                         <div class="description">
-                            <h5 class="info-title">{{ __('Marketing') }}</h5>
+                            <h5 class="info-title">Doctores</h5>
                             <p class="description">
-                                {{ __('We\'ve created the marketing campaign of the website. It was a very interesting collaboration.') }}
+                                Administra los doctores pertenecientes al hospital, 
                             </p>
                         </div>
                     </div>
@@ -24,9 +24,9 @@
                             <i class="nc-icon nc-html5"></i>
                         </div>
                         <div class="description">
-                            <h5 class="info-title">{{ __('Fully Coded in HTML5') }}</h5>
+                            <h5 class="info-title">Citas</h5>
                             <p class="description">
-                                {{ __('We\'ve developed the website with HTML5 and CSS3. The client has access to the code using GitHub.') }}
+                                Administra las citas que pueden tener los doctores
                             </p>
                         </div>
                     </div>

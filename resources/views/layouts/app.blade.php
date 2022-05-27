@@ -1,37 +1,12 @@
-<!--
-=========================================================
- Paper Dashboard - v2.0.0
-=========================================================
-
- Product Page: https://www.creative-tim.com/product/paper-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- UPDIVISION (https://updivision.com)
- Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE)
-
- Coded by Creative Tim
-
-=========================================================
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('paper') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('paper') }}/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <!-- Extra details for Live View on GitHub Pages -->
-    
-    <title>
-        {{ __('Paper Dashboard by Creative Tim') }}
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
+    <title>ANSEZ</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -48,9 +23,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
 </head>
-
 <body class="{{ $class }}">
-    
     @auth()
         @include('layouts.page_templates.auth')
         @include('layouts.navbars.fixed-plugin')
@@ -59,7 +32,6 @@ The above copyright notice and this permission notice shall be included in all c
     @guest
         @include('layouts.page_templates.guest')
     @endguest
-
     <!--   Core JS Files   -->
     <script src="{{ asset('paper') }}/js/core/jquery.min.js"></script>
     <script src="{{ asset('paper') }}/js/core/popper.min.js"></script>
@@ -85,23 +57,18 @@ The above copyright notice and this permission notice shall be included in all c
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.js"></script>
     <!-- select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+
+    <!--  jquery script  -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--  validation script  -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
     
-
-
-
-<!--  jquery script  -->
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--  validation script  -->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
- 
-<!--  jsrender script  -->
-<script src="http://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
- 
-<!-- Essential JS UI widget -->
-<script src="http://cdn.syncfusion.com/16.4.0.52/js/web/ej.web.all.min.js"></script>
-
-
+    <!--  jsrender script  -->
+    <script src="http://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
+    
+    <!-- Essential JS UI widget -->
+    <script src="http://cdn.syncfusion.com/16.4.0.52/js/web/ej.web.all.min.js"></script>
 
     @stack('scripts')
     @include('layouts.navbars.fixed-plugin-js')

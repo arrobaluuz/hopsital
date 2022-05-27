@@ -75,17 +75,16 @@
         </div>
     </div>
 </div>
-
 <script>
-        $("#btn-g-d").click(function() {
-           /*  alert("Validacion: " + );
-            return false; */
-            if( $("#formCreateDoctor").valid() == true){
-                /* showLoad() */
-                $("#formCreateDoctor").submit()
-            }else{
-                /* toastr.error('Verifica los datos') */
-                return false;
-            }
-        });
+    $("#btn-g-d").click(function() {
+        /*  alert("Validacion: " + );
+        return false; */
+        if( $("#formCreateDoctor").valid() == true){
+            /* showLoad() */
+            $("#formCreateDoctor").submit()
+        }else{
+            /* toastr.error('Verifica los datos') */
+            return false;
+        }
+    });
 </script>

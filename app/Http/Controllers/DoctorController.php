@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\EspecialidadModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -54,8 +55,25 @@ class DoctorController extends Controller
             response()->json($th, 500);
             session()->flash('danger',$th);
             return back()->withInput();
-
         }
+    }
+    public function indexEspecialidad()
+    {
+        $especialidades = EspecialidadModel::select('*')->get();
+
+        return view('especialidad.index',compact('especialidades'));
+    }
+    public function storeEspecialidad(Request $request)
+    {
+        try {
+            EspecialidadModel::create([
+                'nombre' => $request->nombre,
+            ]);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        return view('especialidad.index',compact('especialidades'));
     }
 
 }

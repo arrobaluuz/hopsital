@@ -63,7 +63,7 @@
                             @csrf
                         </form>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" onclick="document.getElementById('formLogOut').submit();">LOg out</a>
+                            <a class="dropdown-item" onclick="document.getElementById('formLogOut').submit();">Log out</a>
                             <a class="dropdown-item" href="{{ route('profile.edit') }}">Mi perfil</a>
                         </div>
                     </div>

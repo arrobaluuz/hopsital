@@ -12,7 +12,7 @@
                     <div class="card card-login">
                         <div class="card-header ">
                             <div class="card-header ">
-                                <h3 class="header text-center">{{ __('Login') }}</h3>
+                                <h3 class="header text-center">Login</h3>
                             </div>
                         </div>
                         <div class="card-body ">
@@ -53,10 +53,9 @@
                                 </div>
                             </div> -->
                         </div>
-
                         <div class="card-footer">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning btn-round mb-3">{{ __('Sign in') }}</button>
+                                <button type="submit" class="btn btn-warning btn-round mb-3"><i class="fa-regular fa-circle-right fa-2x"></i></button>
                             </div>
                         </div>
                     </div>
@@ -64,9 +63,9 @@
                 <a href="{{ route('password.request') }}" class="btn btn-link">
                     Olvide mi contraseña
                 </a>
-                <a href="{{ route('register') }}" class="btn btn-link float-right">
+                <!-- <a href="{{ route('register') }}" class="btn btn-link float-right">
                     crear una cuenta
-                </a>
+                </a> -->
             </div>
         </div>
     </div>

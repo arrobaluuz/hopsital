@@ -54,6 +54,12 @@
                     <p>{{ __('Citas') }}</p>
                 </a>
             </li>
+            <li class="{{ $elementActive == 'esp' ? 'active' : '' }}">
+                <a href="{{ route('especialidad.index', 'esp') }}">
+                    <i class="nc-icon nc-badge"></i>
+                    <p>{{ __('Especialidades') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

@@ -25,6 +25,8 @@ class User extends Eloquent implements \Illuminate\Contracts\Auth\Authenticatabl
         'name',
         'email',
         'password',
+        'extension',
+        'img',
     ];
 
     /**

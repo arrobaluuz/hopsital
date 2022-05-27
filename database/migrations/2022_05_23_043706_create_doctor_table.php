@@ -14,14 +14,14 @@ class CreateDoctorTable extends Migration
     public function up()
     {
         Schema::create('doctors', function (Blueprint $table) {
-            $table->id('_id');
+            $table->id();
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('curp',18);
             $table->string('cedula',13);
             $table->string('correo');
             $table->string('telefono',10);
-            $table->char('especialidad',1);
+            $table->foreignId('especialidad_id')->constrained('especialidad')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -854,9 +854,11 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-  background-color: #51bcda;
-  color: #FFFFFF;
+  background-color: #ffaa20 !important;
+  border-color: #ffaa20 !important;
+  color: #523403 !important;
 }
+
 
 .btn-info:hover,
 .btn-info:focus,
@@ -869,7 +871,7 @@ fieldset[disabled] .btn-success.active {
 .show>.btn-info.dropdown-toggle,
 .show>.btn-info.dropdown-toggle:focus,
 .show>.btn-info.dropdown-toggle:hover {
-  background-color: #2ba9cd !important;
+  background-color: #ff8900 !important;
   color: #FFFFFF !important;
   box-shadow: none !important;
 }

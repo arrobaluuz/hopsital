@@ -24,7 +24,10 @@
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/209/opt_pd_laravel_thumbnail.jpg"/>
     <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up." />
     <meta property="og:site_name" content="Creative Tim" />
-    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- fotawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>
         ANSEZ
     </title>
@@ -245,7 +248,8 @@
                     </ul>
                 </div>
             </div>
-        </nav>            <div class="content">
+        </nav>            
+        <div class="content">
         <div class="container-fluid mt--7">
             <div class="row">
                 <div class="col">
@@ -256,13 +260,16 @@
                                     <h3 class="mb-0">Users</h3>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fa-solid fa-circle-plus fa-2x"></i>
+                                    </button>   
                                 </div>
                             </div>
                         </div>
                         
                         <div class="col-12">
-                                                    </div>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="table align-items-center table-flush">
@@ -295,6 +302,7 @@
                     <b> </b> This is a PRO feature!</span>
             </div> -->
         </div>
+        @include('users.modalCreate')
     </div>
         <footer class="footer footer-black  footer-white ">
     <div class="container-fluid">
@@ -398,6 +406,7 @@
     <script src="{{ asset('paper') }}/demo/demo.js"></script>
     <!-- Sharrre libray -->
     <script src="{{ asset('paper') }}/demo/jquery.sharrre.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
     @stack('scripts')
 
