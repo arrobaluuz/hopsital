@@ -60,7 +60,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
 
     <!--  jquery script  -->
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
     <!--  validation script  -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
     

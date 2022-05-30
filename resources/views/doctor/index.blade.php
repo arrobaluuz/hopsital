@@ -87,13 +87,6 @@
 					}
 				}
 			});
-
-            $('#especialidad-select').select2({
-                dropdownParent: $('#exampleModal .modal-body'),
-                placeholder: '<i class="fa-solid fa-stethoscope"></i>    Selecciona una especialidad',
-                escapeMarkup: function (markup) { return markup; }
-            });
-
         } );
         /* end datatables */
         
@@ -103,11 +96,38 @@
                 //Obtenemos la propiedades del evento. data
                 var $this = $(e.relatedTarget);
                 const action = $this.data('action');
+                let actiones = '{{url('')}}/dr/doctor/'
                 if(action == 'update'){
                     const doctor = $this.data('object');
-                    console.log(doctor)
+                    console.log(doctor._id)
+                    const method = "PUT";
+                    actiones = actiones + doctor._id;
+                    document.querySelector('#btn-g-d').innerHTML="Editar";
+                    document.querySelector('#input_method').value=method;   
+                    document.querySelector('#nombres') .value    = doctor.nombres;
+                    document.querySelector('#apellidos') .value    = doctor.apellidos;
+                    document.querySelector('#curp') .value    = doctor.curp;
+                    document.querySelector('#cedula') .value    = doctor.cedula;
+                    document.querySelector('#correo') .value    = doctor.correo;
+                    document.querySelector('#telefono') .value    = doctor.telefono;
+                    $("#especialidad-select").val(doctor.especialidad).trigger('change');  
+                    $('#formCreateDoctor').attr('action',actiones)                                   
+                }else{
+                    /* crear 
+                    method="POST" action="{{route('doctor.store')}}" */
+                    document.querySelector('#nombres') .value    = '';
+                    document.querySelector('#apellidos') .value    = '';
+                    document.querySelector('#curp') .value    = '';
+                    document.querySelector('#cedula') .value    = '';
+                    document.querySelector('#correo') .value    = '';
+                    document.querySelector('#telefono') .value    = '';
+                    document.querySelector('#btn-g-d').innerHTML="Agregar";
+                    $("#especialidad-select").val('1').trigger('change');
+                    $('#formCreateDoctor').attr('action',actiones)
                 }
                 console.log(action)
+                
+
             });
     </script>
 @endpush

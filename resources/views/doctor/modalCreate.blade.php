@@ -1,22 +1,23 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear doctor</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Doctor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formCreateDoctor" class="form" method="POST" action="{{route('doctor.store')}}">
+                <!-- El metodo no se borra {{route('doctor.store')}} -->
+                <form id="formCreateDoctor" class="form" method="POST" action="">
                     @csrf
-                    @method('POST')
+                    <input id="input_method" type="hidden" name="_method" value="" />
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Nombres" type="text" name="nombres" value="" required autofocus>
-                        <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Apellidos" type="text" name="apellidos" value="" required>
+                        <input id="nombres" class="form-control" placeholder="Nombres" type="text" name="nombres" value="" required autofocus>
+                        <input id="apellidos" class="form-control" placeholder="Apellidos" type="text" name="apellidos" value="" required>
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -24,7 +25,7 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="curp" placeholder="CURP" type="text" required maxlength="18"
+                        <input id="curp" class="form-control" name="curp" placeholder="CURP" type="text" required maxlength="18"
                         onkeypress="return (event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122 || event.charCode >= 65 && event.charCode <= 90 )"
                         style="text-transform:uppercase;">
                     </div>
@@ -34,7 +35,7 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control {{ $errors->has('cedula') ? ' is-invalid' : '' }}" name="cedula" placeholder="Cédula" type="text" required  minlength="7" maxlength="8"
+                        <input id="cedula" class="form-control" name="cedula" placeholder="Cédula" type="text" required  minlength="7" maxlength="8"
                         onkeypress="return (event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122 || event.charCode >= 65 && event.charCode <= 90 )"
                         style="text-transform:uppercase;">
                         @if ($errors->has('cedula'))
@@ -49,7 +50,7 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control {{ $errors->has('correo') ? ' is-invalid' : '' }}" name="correo" placeholder="Correo" type="email" required>
+                        <input id="correo" class="form-control" name="correo" placeholder="Correo" type="email" required>
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -57,10 +58,10 @@
                                 <i class="nc-icon nc-single-02"></i>
                             </span>
                         </div>
-                        <input class="form-control" name="telefono" placeholder="Telefono" type="text" maxlength="10"
+                        <input id="telefono" class="form-control" name="telefono" placeholder="Telefono" type="text" maxlength="10"
                         onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                     </div>
-                    <select id="especialidad-select" name="especialidad" class="form-select" aria-label="Default select example" style="width:100%; height: 34px !important;padding: 0 0 0 12px !important;line-height: 32px !important">
+                    <select id="especialidad-select" name="especialidad" style="width:100%; height: 34px !important;padding: 0 0 0 12px !important;line-height: 32px !important">
                         <option></option>
                         <option value="1">Cardiología</option>
                         <option value="2">Cirugía plastica</option>
@@ -70,7 +71,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="btn-g-d" type="button" class="btn btn-primary">Guardar</button>
+                <button id="btn-g-d" type="button" class="btn btn-primary">Agregar</button>
             </div>
         </div>
     </div>
@@ -88,4 +89,14 @@
                 return false;
             }
         });
+
+    $(document).ready( function () {
+
+        //pendiente
+        $('#especialidad-select').select2({
+                dropdownParent: $('#exampleModal .modal-body'),
+                placeholder: '<i class="fa-solid fa-stethoscope"></i> Selecciona una especialidad',
+                escapeMarkup: function (markup) { return markup; }
+        });
+    });
 </script>

@@ -38,7 +38,7 @@ class DoctorController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $updateDoctor = Doctor::select('*')->where('_id',$id)->get();
+            $updateDoctor = Doctor::select('*')->where('_id',$id)->first();
             $updateDoctor -> nombres = $request-> nombres;
             $updateDoctor -> apellidos = $request-> apellidos;
             $updateDoctor -> curp = $request-> curp;
@@ -60,7 +60,6 @@ class DoctorController extends Controller
     public function indexEspecialidad()
     {
         $especialidades = EspecialidadModel::select('*')->get();
-
         return view('especialidad.index',compact('especialidades'));
     }
     public function storeEspecialidad(Request $request)
@@ -72,7 +71,7 @@ class DoctorController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
         }
-
+        $especialidades = EspecialidadModel::select('*')->get();
         return view('especialidad.index',compact('especialidades'));
     }
 

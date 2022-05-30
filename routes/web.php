@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\CitaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::prefix('dr')->group(function(){
 		Route::get('index', [DoctorController::class, 'index'])->name('doctor.index');
-		Route::post('store', [DoctorController::class, 'store'])->name('doctor.store');
-		Route::put('update', [DoctorController::class, 'update'])->name('doctor.update');
+		Route::post('doctor', [DoctorController::class, 'store'])->name('doctor.store');
+		Route::put('doctor/{id}', [DoctorController::class, 'update'])->name('doctor.update');
 	});
 	Route::prefix('especialidad')->group(function(){
 		Route::get('index',[DoctorController::class,'indexEspecialidad'])->name('especialidad.index');
@@ -47,6 +48,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::prefix('us')->group(function(){
 		Route::post('index', [UserController::class, 'store'])->name('registrar');
+	});
+
+	Route::prefix('citas')->group(function(){
+		Route::get('index', [CitaController::class, 'index'])->name('cita.index');
+		Route::post('store', [CitaController::class, 'store'])->name('cita.store');
+		Route::put('update', [CitaController::class, 'update'])->name('cita.update');
 	});
 
 });

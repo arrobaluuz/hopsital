@@ -8,12 +8,12 @@
             <div class="col-md-12">
                 <div class="card demo-icons">
                     <div class="card-header">
-                        <h5 class="card-title">Doctores registrados</h5>
+                        <h5 class="card-title">Especialidades</h5>
                     </div>
                     <div class="card-body all-icons">
                         <div class="row">
                             <div class="col-12 text-right">
-                                <button type="button" class="btn-redondo btn btn-success " data-bs-toggle="modal" data-bs-target="#exampleModal" data-action="create">
+                                <button type="button" class="btn-redondo btn btn-success " data-bs-toggle="modal" data-bs-target="#CE-especialidad" data-action="create">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </button>
                             </div>
@@ -27,17 +27,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($especialidades as $especialidade)
+                            @foreach($especialidades as $especialidad)
                             <tr>
-                                <td class="text-center">{{$especialidade->nombre}}</td>
+                                <td class="text-center">{{$especialidad->nombre}}</td>
                                 <td class="text-center">
-                                    <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-object="{{$doctor}}" data-action="update">
+                                    <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#CE-especialidad" data-object="{{$especialidad}}" data-action="update">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
                                 </td>
                             </tr>
                             @endforeach
-                            
                         </tbody>
                         </table>
                         </div>
@@ -47,7 +46,7 @@
         </div>
     </div>
 
-@include('doctor.modalCreate')
+@include('especialidad.modalCreateEsp')
 @endsection
 @push('scripts')
     <script>
