@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Doctor</h5>
+                <h5 id="title" class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -22,7 +22,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="nc-icon nc-single-02"></i>
+                                <i class="fa-solid fa-note-sticky"></i>
                             </span>
                         </div>
                         <input id="curp" class="form-control" name="curp" placeholder="CURP" type="text" required maxlength="18"
@@ -32,7 +32,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="nc-icon nc-single-02"></i>
+                                <i class="fa-solid fa-id-card-clip"></i>
                             </span>
                         </div>
                         <input id="cedula" class="form-control" name="cedula" placeholder="Cédula" type="text" required  minlength="7" maxlength="8"
@@ -47,7 +47,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="nc-icon nc-single-02"></i>
+                                <i class="fa-solid fa-at"></i>
                             </span>
                         </div>
                         <input id="correo" class="form-control" name="correo" placeholder="Correo" type="email" required>
@@ -55,7 +55,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="nc-icon nc-single-02"></i>
+                                <i class="fa-solid fa-phone"></i>
                             </span>
                         </div>
                         <input id="telefono" class="form-control" name="telefono" placeholder="Telefono" type="text" maxlength="10"
@@ -91,8 +91,6 @@
         });
 
     $(document).ready( function () {
-
-        //pendiente
         $('#especialidad-select').select2({
                 dropdownParent: $('#exampleModal .modal-body'),
                 placeholder: '<i class="fa-solid fa-stethoscope"></i> Selecciona una especialidad',

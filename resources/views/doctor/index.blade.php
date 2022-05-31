@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => '',
-    'elementActive' => 'doctors'
+    'elementActive' => 'doctores'
 ])
 @section('content')
     <div class="content">
@@ -99,9 +99,9 @@
                 let actiones = '{{url('')}}/dr/doctor/'
                 if(action == 'update'){
                     const doctor = $this.data('object');
-                    console.log(doctor._id)
                     const method = "PUT";
                     actiones = actiones + doctor._id;
+                    document.querySelector('#title').innerHTML="Editar doctor";
                     document.querySelector('#btn-g-d').innerHTML="Editar";
                     document.querySelector('#input_method').value=method;   
                     document.querySelector('#nombres') .value    = doctor.nombres;
@@ -116,6 +116,7 @@
                     /* crear 
                     method="POST" action="{{route('doctor.store')}}" */
                     document.querySelector('#nombres') .value    = '';
+                    document.querySelector('#title').innerHTML="Crear doctor";
                     document.querySelector('#apellidos') .value    = '';
                     document.querySelector('#curp') .value    = '';
                     document.querySelector('#cedula') .value    = '';
@@ -125,9 +126,6 @@
                     $("#especialidad-select").val('1').trigger('change');
                     $('#formCreateDoctor').attr('action',actiones)
                 }
-                console.log(action)
-                
-
             });
     </script>
 @endpush

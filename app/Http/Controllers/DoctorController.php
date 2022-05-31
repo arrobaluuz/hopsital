@@ -68,6 +68,41 @@ class DoctorController extends Controller
             EspecialidadModel::create([
                 'nombre' => $request->nombre,
             ]);
+            session()->flash('success','Especialidad creada');
+            return back()->withInput();
+        } catch (\Throwable $th) {
+            response()->json($th, 500);
+            session()->flash('danger',$th);
+            return back()->withInput();
+        }
+    }
+    public function updateEspecialidad(Request $request, $id)
+    {
+        try {
+            $update = EspecialidadModel::select('*')->where('_id',$id)->first();
+            $update -> nombre = $request-> nombre;
+            $update -> update();
+            session()->flash('success','Especialidad actualizada');
+            return back()->withInput();
+        } catch (\Throwable $th) {
+            response()->json($th, 500);
+            session()->flash('danger',$th);
+            return back()->withInput();
+        }
+
+
+
+
+
+
+
+
+
+
+        try {
+            EspecialidadModel::create([
+                'nombre' => $request->nombre,
+            ]);
         } catch (\Throwable $th) {
             //throw $th;
         }

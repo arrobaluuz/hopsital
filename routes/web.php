@@ -42,8 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 	Route::prefix('especialidad')->group(function(){
 		Route::get('index',[DoctorController::class,'indexEspecialidad'])->name('especialidad.index');
-		Route::post('store', [DoctorController::class, 'storeEspecialidad'])->name('especialidad.store');
-		Route::put('update', [DoctorController::class, 'updateEspecialidad'])->name('especialidad.update');
+		Route::post('es', [DoctorController::class, 'storeEspecialidad'])->name('especialidad.store');
+		Route::put('es/{id}', [DoctorController::class, 'updateEspecialidad'])->name('especialidad.update');
 	});
 
 	Route::prefix('us')->group(function(){

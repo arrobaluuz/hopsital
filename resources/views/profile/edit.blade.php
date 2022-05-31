@@ -187,7 +187,7 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Guardar') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round"><i class="fa-regular fa-floppy-disk"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Guardar') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round"><i class="fa-regular fa-floppy-disk"></i></button>
                                 </div>
                             </div>
                         </div>

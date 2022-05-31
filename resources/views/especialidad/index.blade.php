@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => '',
-    'elementActive' => 'especialidad'
+    'elementActive' => 'esp'
 ])
 @section('content')
     <div class="content">
@@ -86,17 +86,32 @@
         } );
         /* end datatables */
         
-        /* Modal Edit */
-        let modalEdit = document.getElementById('exampleModal');
-		    modalEdit.addEventListener('show.bs.modal',function(e) {
+        /* Modal Crete / Edit */
+        document.getElementById('CE-especialidad').addEventListener('show.bs.modal',function(e) {
                 //Obtenemos la propiedades del evento. data
                 var $this = $(e.relatedTarget);
                 const action = $this.data('action');
+                let actiones = '{{url('')}}/especialidad/es/'
                 if(action == 'update'){
-                    const doctor = $this.data('object');
-                    console.log(doctor)
+                    
+                    
+                   
+                    const especialidad = $this.data('object');
+                    const method = "PUT";
+                    actiones = actiones + especialidad._id;
+                    document.querySelector('#titleEsp').innerHTML="Editar especialidad";
+                    document.querySelector('#input_method').value=method;   
+                    document.querySelector('#nombreEsp') .value    = especialidad.nombre;
+                    $('#formEsp').attr('action',actiones)                                   
+                }else{
+                    const method = "POST";
+                    document.querySelector('#input_method').value=method; 
+                    /* crear 
+                    method="POST" action="{{route('doctor.store')}}" */
+                    document.querySelector('#titleEsp').innerHTML="Crear especialidad";
+                    document.querySelector('#nombreEsp') .value    = '';
+                    $('#formEsp').attr('action',actiones)
                 }
-                console.log(action)
-            });
+            });;
     </script>
 @endpush

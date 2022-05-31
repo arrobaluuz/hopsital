@@ -41,7 +41,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="{{ $elementActive == 'notifications' ? 'active' : '' }}">
+            <li class="{{ $elementActive == 'doctores' ? 'active' : '' }}">
                 <a href="{{ route('doctor.index', 'doctors') }}">
                     <i class="fa-solid fa-user-doctor"></i>
                     <p>Doctores</p>

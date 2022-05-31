@@ -2,32 +2,33 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear especialidad</h5>
+                <h5 id="titleEsp" class="modal-title" id="exampleModalLabel">Crear especialidad</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formEsp" class="form" method="POST" action="{{route('especialidad.store')}}">
+                <form id="formEsp" class="form" method="POST" action="">
                     @csrf
+                   <!--  {{route('especialidad.store')}} -->
+                    <input id="input_method" type="hidden" name="_method" value="" />
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="nc-icon nc-badge"></i>
+                                <i class="fa-solid fa-notes-medical"></i>
                             </span>
                         </div>
-                        <!-- puras letras -->
-                        <input class="form-control" name="nombre" placeholder="nombre" type="text" required maxlength="50">
+                        <input id="nombreEsp" class="form-control" name="nombre" placeholder="Especialidad" type="text" required maxlength="50">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="btn-g-d" type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button id="btn-g-e" type="button" class="btn btn-primary"><i class="fa-regular fa-floppy-disk"></i></button>
             </div>
         </div>
     </div>
 </div>
 <script>
-    $("#btn-g-d").click(function() {
+    $("#btn-g-e").click(function() {
         if( $("#formEsp").valid() == true){
             /* showLoad() */
             $("#formEsp").submit()
