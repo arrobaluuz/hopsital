@@ -36,7 +36,7 @@
                             <tr>
                                 <td class="text-center">{{$doctor->cedula}}</td>
                                 <td class="text-center">{{$doctor->nombres.' '.$doctor->apellidos}}</td>
-                                <td class="text-center">{{$doctor->especialidad}}</td>
+                                <td class="text-center">{{$doctor->name_esp}}</td>
                                 <td class="text-center">{{$doctor->curp}}</td>
                                 <td class="text-center">{{$doctor->correo}}</td>
                                 <td class="text-center">{{$doctor->telefono}}</td>

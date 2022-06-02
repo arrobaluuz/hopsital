@@ -6,13 +6,20 @@ use App\Models\Doctor;
 use App\Models\EspecialidadModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
 {
     public function index(Doctor $model)
     {
         $doctores = Doctor::select('*')->get();
-        return view('doctor.index', compact('doctores'));
+
+        foreach($doctores as $doctor){
+            $especialidad = EspecialidadModel::select('nombre')->where('_id', $doctor->especialidad)->first();
+            $doctor->name_esp = $especialidad->nombre;
+        }
+        $especialidades = EspecialidadModel::select('*')->get();
+        return view('doctor.index', compact('doctores','especialidades'));
     }
     public function store(Request $request)
     {

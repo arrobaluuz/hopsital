@@ -63,9 +63,9 @@
                     </div>
                     <select id="especialidad-select" name="especialidad" style="width:100%; height: 34px !important;padding: 0 0 0 12px !important;line-height: 32px !important">
                         <option></option>
-                        <option value="1">Cardiología</option>
-                        <option value="2">Cirugía plastica</option>
-                        <option value="3">Odontología</option>
+                        @foreach($especialidades as $especialidad)
+                            <option value="{{$especialidad->_id}}">{{$especialidad->nombre}}</option>
+                        @endforeach
                     </select>
                 </form>
             </div>
