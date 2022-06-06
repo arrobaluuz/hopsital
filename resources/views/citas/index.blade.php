@@ -103,7 +103,7 @@
                     const method = "PUT";
                     actiones = actiones + cita._id;
                     document.querySelector('#titleCita').innerHTML="Editar cita";
-                    $('#input_method').value=method; 
+                    $('#input_method').val(method); 
                     $('#diaCita').val(cita.dia); 
                     $('#hora').val(cita.hora);  
                     $('#notas').val(cita.notas);
@@ -112,7 +112,7 @@
                     $('#formCitas').attr('action',actiones)   
                 }else{
                     const method = "POST";
-                    $('#input_method').value=method; 
+                    $('#input_method').val(method); 
                     $('#formCitas').attr('action',actiones)
                     document.querySelector('#titleCita').innerHTML="Crear cita";
                     $('#nombreEsp') .value = '';

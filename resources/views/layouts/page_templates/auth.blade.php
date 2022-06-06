@@ -1,5 +1,5 @@
 <div class="wrapper">
-    @include('layouts.navbars.auth'
+    @include('layouts.navbars.auth')
     <div class="main-panel">
         @include('layouts.navbars.navs.auth')
         @yield('content')

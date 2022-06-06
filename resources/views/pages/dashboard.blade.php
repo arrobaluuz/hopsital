@@ -6,35 +6,31 @@
 @section('content')
     <div class="content">
         <div class="repeat-4">
-           
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-5 col-md-4">
-                                    <div class="icon-big text-center icon-warning">
-                                        <i class="nc-icon nc-globe text-warning"></i>
+                @foreach($citas as $item)
+                        <div class="card card-stats">
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-5 col-md-4">
+                                        <div class="icon-big text-center" >
+                                            <i class="fa-solid fa-file-waveform" style="color:#e49542 !important"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-7 col-md-8">
-                                    <div class="numbers">
-                                        <p class="card-category">Capacity</p>
-                                        <p class="card-title">150GB
-                                            <p>
+                                    <div class="col-7 col-md-8">
+                                        <div class="numbers">
+                                            <p class="card-category">{{$item->dia}} {{$item->hora}}</p>
+                                            <p class="card-title" style="font-size: 15pt !important">{{$item->doctor}}<p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-refresh"></i> Update Now
+                            <div class="card-footer ">
+                                <hr>
+                                <div class="stats">
+                                    <i class="fa-solid fa-clipboard"></i> {{$item->notas}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-           
+                @endforeach
         </div>
        <!--  <div class="row">
             <div class="col-md-12">

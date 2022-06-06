@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::prefix('citas')->group(function(){
 		Route::get('index', [CitaController::class, 'index'])->name('cita.index');
 		Route::post('es', [CitaController::class, 'store'])->name('cita.store');
-		Route::put('es', [CitaController::class, 'update'])->name('cita.update');
+		Route::put('es/{id}', [CitaController::class, 'update'])->name('cita.update');
 	});
 
 });

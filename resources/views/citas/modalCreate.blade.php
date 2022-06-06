@@ -37,8 +37,6 @@
                         @endforeach
                     </select>
 
-
-
                     <div class="input-group" style="margin-top: 10px;">
                         <div class="input-group-prepend">
                             <span class="input-group-text">

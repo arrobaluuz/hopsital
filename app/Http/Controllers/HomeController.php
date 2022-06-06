@@ -13,7 +13,6 @@ class HomeController extends Controller
     }
     public function index()
     {
-        return 'hola';
         return view('pages.dashboard', compact('citas'));
     }
 }
