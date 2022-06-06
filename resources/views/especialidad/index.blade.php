@@ -31,6 +31,15 @@
                             <tr>
                                 <td class="text-center">{{$especialidad->nombre}}</td>
                                 <td class="text-center">
+                                    <a type="button" rel="tooltip" href="{{route('especialidad.active', $especialidad->_id)}}"
+                                        @if( $especialidad->active == 1)
+                                            class="btn btn-success btn-sm" >
+                                                <i class="fa-solid fa-toggle-on" style="color: white;"></i>
+                                        @else
+                                            class="btn btn-danger btn-sm" >
+                                                <i class="fa-solid fa-toggle-off" style="color: white;"></i>
+                                        @endif
+                                    </a>
                                     <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#CE-especialidad" data-object="{{$especialidad}}" data-action="update">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
@@ -93,8 +102,7 @@
                 const action = $this.data('action');
                 let actiones = '{{url('')}}/especialidad/es/'
                 if(action == 'update'){
-                    
-                    
+                
                    
                     const especialidad = $this.data('object');
                     const method = "PUT";
@@ -104,10 +112,9 @@
                     document.querySelector('#nombreEsp') .value    = especialidad.nombre;
                     $('#formEsp').attr('action',actiones)                                   
                 }else{
-                    const method = "POST";
-                    document.querySelector('#input_method').value=method; 
-                    /* crear 
-                    method="POST" action="{{route('doctor.store')}}" */
+                    /* const method = "POST"; */
+                    document.querySelector('#input_method').value="POST";   
+                     /* crear  */
                     document.querySelector('#titleEsp').innerHTML="Crear especialidad";
                     document.querySelector('#nombreEsp') .value    = '';
                     $('#formEsp').attr('action',actiones)

@@ -41,6 +41,7 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,6 +49,11 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                       <!--  <td>
+                                            <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#resetPassword" data-user="{{$user->_id}}">
+                                                <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
+                                            </a>
+                                        </td> -->
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -63,5 +69,16 @@
         </div>
     </div>
     @include('users.modalCreate')
-    
+    @include('users.modalEdit')
+    <script>
+         /* Modal Crete / Edit */
+        document.getElementById('resetPassword').addEventListener('show.bs.modal',function(e) {
+            //Obtenemos la propiedades del evento. data
+            var $this = $(e.relatedTarget);
+            const user= $this.data('user');
+            let actiones = '{{url('')}}/user/reset/'
+            actiones = actiones + user;
+            $('#formRese').attr('action',actiones)                                   
+        });;
+    </script>
 @endsection

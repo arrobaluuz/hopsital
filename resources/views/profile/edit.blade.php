@@ -192,6 +192,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </form>
                 <form class="col-md-12" action="{{ route('profile.password') }}" method="POST">
                     @csrf

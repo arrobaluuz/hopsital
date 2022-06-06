@@ -28,7 +28,6 @@
         @include('layouts.page_templates.auth')
         @include('layouts.navbars.fixed-plugin')
     @endauth
-    
     @guest
         @include('layouts.page_templates.guest')
     @endguest

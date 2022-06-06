@@ -28,18 +28,13 @@ class PageController extends Controller
     public function index(string $page)
     {
         if (view()->exists("pages.{$page}")) {
-            if($page == 'dashboard'){
-                $now = Carbon::now()->format('Y-m-d');
-                $citas= Cita::select('*')->where('dia', '>=', $now )->orderBy('dia')->orderBy('hora')->get();
-                foreach($citas as $item){
-                    $doctor = Doctor::select('*')->where('_id',$item->id_doctor)->first();
-                    $item -> doctor = $doctor->nombres ." ".$doctor->apellidos;
-                }
-
-                return view("pages.{$page}", compact('citas'));
-            }else{
-                return view("pages.{$page}");
+            $now = Carbon::now()->format('Y-m-d');
+            $citas= Cita::select('*')->where('dia', '>=', $now )->where('active',1)->orderBy('dia')->orderBy('hora')->get();
+            foreach($citas as $item){
+                $doctor = Doctor::select('*')->where('_id',$item->id_doctor)->first();
+                $item -> doctor = $doctor->nombres ." ".$doctor->apellidos;
             }
+            return view("pages.{$page}", compact('citas'));
         }
         return abort(404);
     }

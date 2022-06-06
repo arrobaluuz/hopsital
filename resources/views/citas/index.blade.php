@@ -37,6 +37,15 @@
                                 <td class="text-center">{{$item->hora}}</td>
                                 <td class="text-center">{{$item->notas}}</td>
                                 <td class="text-center">
+                                    <a type="button" rel="tooltip" href="{{route('cita.active', $item->_id)}}"
+                                        @if( $item->active == 1)
+                                            class="btn btn-success btn-sm" >
+                                                <i class="fa-solid fa-toggle-on" style="color: white;"></i>
+                                        @else
+                                            class="btn btn-danger btn-sm" >
+                                                <i class="fa-solid fa-toggle-off" style="color: white;"></i>
+                                        @endif
+                                    </a>
                                     <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-citas" data-object="{{$item}}" data-action="update">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>

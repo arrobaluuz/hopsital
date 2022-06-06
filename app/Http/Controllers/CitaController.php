@@ -16,9 +16,7 @@ class CitaController extends Controller
             $doctor = Doctor::select('*')->where('_id',$item->id_doctor)->first();
             $item -> doctor = $doctor->nombres ." ".$doctor->apellidos;
         }
-        
-        $doctores = Doctor::select('*')->get();
-
+        $doctores = Doctor::select('*')->where('active',1)->get();
         return view('citas.index', compact('citas','doctores'));
     }
     public function store(Request $request)
@@ -29,6 +27,7 @@ class CitaController extends Controller
             $newCita -> dia = $request -> dia;
             $newCita -> hora = $request -> hora;
             $newCita -> notas = $request -> notas;
+            $newCita ->active = 1;
             $newCita -> save();
             session()->flash('success','Cita agendada');
             return back()->withInput();
@@ -49,6 +48,25 @@ class CitaController extends Controller
             $newCita -> update();
             session()->flash('success','Cita actualizada');
             return back()->withInput();
+        } catch (\Throwable $th) {
+            response()->json($th, 500);
+            session()->flash('danger',$th);
+            return back()->withInput();
+        }
+    }
+    public function active($id)
+    {
+        try {
+            $updateCita = Cita::select('*')->where('_id',$id)->first();
+            if($updateCita->active == 1 ){
+                $updateCita -> active = 0;
+            }else{
+                $updateCita -> active = 1;
+            }
+            $updateCita -> update();
+            session()->flash('success','Cita actualizada');
+            return back()->withInput();
+
         } catch (\Throwable $th) {
             response()->json($th, 500);
             session()->flash('danger',$th);

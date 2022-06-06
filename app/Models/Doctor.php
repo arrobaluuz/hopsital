@@ -17,5 +17,6 @@ class Doctor extends Eloquent
         'telefono',
         'correo',
         'especialidad',
+        'active'
     ];
 }

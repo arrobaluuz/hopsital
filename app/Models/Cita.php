@@ -13,6 +13,7 @@ class Cita extends Eloquent
         'id_doctor',
         'día',
         'hora',
-        'notas'
+        'notas',
+        'active'
     ];
 }

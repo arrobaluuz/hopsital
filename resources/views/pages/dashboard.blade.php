@@ -7,7 +7,10 @@
     <div class="content">
         <div class="repeat-4">
                 @foreach($citas as $item)
-                        <div class="card card-stats">
+                        <div class="card card-stats" 
+                        @if($item->dia == Carbon\Carbon::now()->startOfDay()->format('Y-m-d'))
+                            style="background-color: #c6edbf"}
+                        @endif>
                             <div class="card-body ">
                                 <div class="row">
                                     <div class="col-5 col-md-4">

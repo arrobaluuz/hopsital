@@ -13,12 +13,11 @@ class DoctorController extends Controller
     public function index(Doctor $model)
     {
         $doctores = Doctor::select('*')->get();
-
         foreach($doctores as $doctor){
             $especialidad = EspecialidadModel::select('nombre')->where('_id', $doctor->especialidad)->first();
             $doctor->name_esp = $especialidad->nombre;
         }
-        $especialidades = EspecialidadModel::select('*')->get();
+        $especialidades = EspecialidadModel::select('*')->where('active',1)->get();
         return view('doctor.index', compact('doctores','especialidades'));
     }
     public function store(Request $request)
@@ -32,6 +31,7 @@ class DoctorController extends Controller
             $newDoctor -> correo = $request-> correo;
             $newDoctor -> telefono = $request-> telefono;
             $newDoctor -> especialidad = $request-> especialidad;
+            $newDoctor ->active = 1;
             $newDoctor -> save();
             session()->flash('success','Doctor agregado');
             return back()->withInput();
@@ -64,6 +64,29 @@ class DoctorController extends Controller
             return back()->withInput();
         }
     }
+    public function active($id)
+    {
+        
+        try {
+            $updateDoctor = Doctor::select('*')->where('_id',$id)->first();
+            if($updateDoctor->active == 1 ){
+                $updateDoctor -> active = 0;
+            }else{
+                $updateDoctor -> active = 1;
+            }
+            $updateDoctor -> update();
+            session()->flash('success','Doctor actualizado');
+            return back()->withInput();
+
+        } catch (\Throwable $th) {
+            response()->json($th, 500);
+            session()->flash('danger',$th);
+            return back()->withInput();
+        }
+    }
+
+
+
     public function indexEspecialidad()
     {
         $especialidades = EspecialidadModel::select('*')->get();
@@ -71,9 +94,10 @@ class DoctorController extends Controller
     }
     public function storeEspecialidad(Request $request)
     {
+       /*  return 1; */
         try {
             EspecialidadModel::create([
-                'nombre' => $request->nombre,
+                'nombre' => $request->nombre
             ]);
             session()->flash('success','Especialidad creada');
             return back()->withInput();
@@ -96,25 +120,25 @@ class DoctorController extends Controller
             session()->flash('danger',$th);
             return back()->withInput();
         }
+    }
 
-
-
-
-
-
-
-
-
-
+    public function activeEspecialidad($id)
+    {
         try {
-            EspecialidadModel::create([
-                'nombre' => $request->nombre,
-            ]);
+            $updateEspecialidad = EspecialidadModel::select('*')->where('_id',$id)->first();
+            if($updateEspecialidad->active == 1 ){
+                $updateEspecialidad -> active = 0;
+            }else{
+                $updateEspecialidad -> active = 1;
+            }
+            $updateEspecialidad -> update();
+            session()->flash('success','Especialidad actualizada');
+            return back()->withInput();
         } catch (\Throwable $th) {
-            //throw $th;
+            response()->json($th, 500);
+            session()->flash('danger',$th);
+            return back()->withInput();
         }
-        $especialidades = EspecialidadModel::select('*')->get();
-        return view('especialidad.index',compact('especialidades'));
     }
 
 }

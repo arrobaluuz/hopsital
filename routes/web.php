@@ -46,22 +46,26 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('index', [DoctorController::class, 'index'])->name('doctor.index');
 		Route::post('doctor', [DoctorController::class, 'store'])->name('doctor.store');
 		Route::put('doctor/{id}', [DoctorController::class, 'update'])->name('doctor.update');
+		Route::get('doctor/{id}/active', [DoctorController::class, 'active'])->name('doctor.active');
 	});
 	Route::prefix('especialidad')->group(function(){
 		Route::get('index',[DoctorController::class,'indexEspecialidad'])->name('especialidad.index');
 		Route::post('es', [DoctorController::class, 'storeEspecialidad'])->name('especialidad.store');
 		Route::put('es/{id}', [DoctorController::class, 'updateEspecialidad'])->name('especialidad.update');
+		Route::get('es/{id}', [DoctorController::class, 'activeEspecialidad'])->name('especialidad.active');
 	});
 
 	Route::prefix('us')->group(function(){
 		Route::post('index', [UserController::class, 'store'])->name('registrar');
-	});
+		Route::get('{id}/active', [UserController::class, 'active'])->name('user.active');
+		Route::put('reset/{id}', [UserController::class, 'updatePass'])->name('user.resetPass');
 
+	});
 	Route::prefix('citas')->group(function(){
 		Route::get('index', [CitaController::class, 'index'])->name('cita.index');
 		Route::post('es', [CitaController::class, 'store'])->name('cita.store');
 		Route::put('es/{id}', [CitaController::class, 'update'])->name('cita.update');
+		Route::get('{id}/active', [CitaController::class, 'active'])->name('cita.active');
 	});
-
 });
 

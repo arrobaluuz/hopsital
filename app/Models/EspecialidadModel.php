@@ -14,5 +14,6 @@ class EspecialidadModel extends Eloquent
     protected $collection = 'especialidad';
     protected $fillable = [
         'nombre',
+        'active'
     ];
 }

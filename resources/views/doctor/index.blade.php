@@ -41,6 +41,15 @@
                                 <td class="text-center">{{$doctor->correo}}</td>
                                 <td class="text-center">{{$doctor->telefono}}</td>
                                 <td class="text-center">
+                                    <a type="button" rel="tooltip" href="{{route('doctor.active', $doctor->_id)}}"
+                                        @if($doctor->active == 1)
+                                            class="btn btn-success btn-sm" >
+                                                <i class="fa-solid fa-toggle-on" style="color: white;"></i>
+                                        @else
+                                            class="btn btn-danger btn-sm" >
+                                                <i class="fa-solid fa-toggle-off" style="color: white;"></i>
+                                        @endif
+                                    </a>
                                     <a type="button" rel="tooltip" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-object="{{$doctor}}" data-action="update">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
