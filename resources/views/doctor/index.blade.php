@@ -110,7 +110,10 @@
                     document.querySelector('#cedula') .value    = doctor.cedula;
                     document.querySelector('#correo') .value    = doctor.correo;
                     document.querySelector('#telefono') .value    = doctor.telefono;
-                    $("#especialidad-select").val(doctor.especialidad).trigger('change');  
+
+                     
+
+                    $("#especialidad-select").val(doctor.especialidad).trigger('change.select2');  
                     $('#formCreateDoctor').attr('action',actiones)                                   
                 }else{
                     /* crear 
@@ -122,8 +125,7 @@
                     document.querySelector('#cedula') .value    = '';
                     document.querySelector('#correo') .value    = '';
                     document.querySelector('#telefono') .value    = '';
-                    document.querySelector('#btn-g-d').innerHTML="Agregar";
-                    $("#especialidad-select").val('1').trigger('change');
+                    $("#especialidad-select").val(null).trigger('change.select2');
                     $('#formCreateDoctor').attr('action',actiones)
                 }
             });

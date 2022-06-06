@@ -48,8 +48,8 @@
                 </a>
             </li>
 
-            <li class="{{ $elementActive == 'map' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'map') }}">
+            <li class="{{ $elementActive == 'citas' ? 'active' : '' }}">
+                <a href="{{ route('cita.index', 'citas') }}">
                     <i class="fa-solid fa-file-waveform"></i>
                     <p>{{ __('Citas') }}</p>
                 </a>

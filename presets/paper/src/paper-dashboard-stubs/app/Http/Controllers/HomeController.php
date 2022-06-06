@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Cita;
+use App\Models\Doctor;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -21,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $citas = Cita::select('*')->get();
+        return $citas;
         return view('pages.dashboard');
     }
 }

@@ -18,6 +18,31 @@
                 </div>
             </div>
         </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" >
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card" style="width: 100%; background-color: #ffffff54 !important;"" >
+                       
+                        <div class="card-body">
+                            <h2 class="card-title text-center"> CONTACTA A NUESTROS DOCTORES</h2>
+                        </div>
+                    </div>
+                </div>
+            @foreach($doctores as $item)
+                <div class="carousel-item" >
+                    <div class="card" style="width: 100%; background-color: #ffffff54 !important;" >
+                        <div class="card-body">
+
+                            <h3 class="card-title text-center">{{$item->nombres}} {{$item->apellidos}}</h3>
+                            <h4 class="text-center"> {{$item->name_esp}}</h4>
+                            <h5 class="text-center">{{$item->correo}}</h5>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+        </div>
     </div>
 @endsection
 

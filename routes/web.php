@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\CitaController;
+use App\Models\Doctor;
+use App\Models\EspecialidadModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,12 @@ use App\Http\Controllers\CitaController;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+	$doctores = Doctor::select('*')->get();
+	foreach($doctores as $doctor){
+		$especialidad = EspecialidadModel::select('nombre')->where('_id', $doctor->especialidad)->first();
+		$doctor->name_esp = $especialidad->nombre;
+	}
+    return view('welcome',compact('doctores'));
 });
 
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
@@ -52,8 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::prefix('citas')->group(function(){
 		Route::get('index', [CitaController::class, 'index'])->name('cita.index');
-		Route::post('store', [CitaController::class, 'store'])->name('cita.store');
-		Route::put('update', [CitaController::class, 'update'])->name('cita.update');
+		Route::post('es', [CitaController::class, 'store'])->name('cita.store');
+		Route::put('es', [CitaController::class, 'update'])->name('cita.update');
 	});
 
 });

@@ -70,8 +70,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="btn-g-d" type="button" class="btn btn-primary">Agregar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button id="btn-g-d" type="button" class="btn btn-primary"><i class="fa-regular fa-floppy-disk"></i></button>
             </div>
         </div>
     </div>
