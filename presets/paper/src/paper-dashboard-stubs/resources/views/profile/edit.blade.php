@@ -24,21 +24,30 @@
                     <div class="card-body">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="{{ asset('paper/img/mike.jpg') }}" alt="...">
+                                <img class="avatar border-gray"  alt="..."
+                                src="
+                                @if(__(auth()->user()->extension))
+                                    data:image/{{ __(auth()->user()->extension)}};base64,{{__(auth()->user()->img)}}
+                                @else
+                                    {{asset('paper/img/user.png')}}
+                                @endif
+                               
+                                ">
+                               <!--  src="{{ asset('paper/img/mike.jpg') }}" -->
 
                                 <h5 class="title">{{ __(auth()->user()->name)}}</h5>
                             </a>
                             <p class="description">
-                            @ {{ __(auth()->user()->name)}}
+                            @ANSEZ_{{ __(auth()->user()->name)}}
                             </p>
                         </div>
-                        <p class="description text-center">
+                        <!-- <p class="description text-center">
                             {{ __('I like the way you work it') }}
                             <br> {{ __('No diggity') }}
                             <br> {{ __('I wanna bag it up') }}
-                        </p>
+                        </p> -->
                     </div>
-                    <div class="card-footer">
+                   <!--  <div class="card-footer">
                         <hr>
                         <div class="button-container">
                             <div class="row">
@@ -62,9 +71,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">{{ __('Team Members') }}</h4>
                     </div>
@@ -135,7 +144,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-md-8 text-center">
                 <form class="col-md-12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
@@ -143,14 +152,14 @@
                     @method('PUT')
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="title">{{ __('Edit Profile') }}</h5>
+                            <h5 class="title">{{ __('Editar perfil') }}</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <label class="col-md-3 col-form-label">{{ __('Name') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Nombre') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ auth()->user()->name }}" required>
+                                        <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{ auth()->user()->name }}" required>
                                     </div>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -160,10 +169,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label class="col-md-3 col-form-label">{{ __('Email') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Correo') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ auth()->user()->email }}" required>
+                                        <input type="email" name="email" class="form-control" placeholder="correo" value="{{ auth()->user()->email }}" required>
                                     </div>
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -176,7 +185,7 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -187,14 +196,14 @@
                     @method('PUT')
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="title">{{ __('Change Password') }}</h5>
+                            <h5 class="title">{{ __('Cambiar contraseña') }}</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <label class="col-md-3 col-form-label">{{ __('Old Password') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Contraseña anterior') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="old_password" class="form-control" placeholder="Old password" required>
+                                        <input type="password" name="old_password" class="form-control" placeholder="Contraseña anterior" required>
                                     </div>
                                     @if ($errors->has('old_password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -204,10 +213,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label class="col-md-3 col-form-label">{{ __('New Password') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Nueva contraseña') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
                                     </div>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -217,10 +226,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label class="col-md-3 col-form-label">{{ __('Password Confirmation') }}</label>
+                                <label class="col-md-3 col-form-label">{{ __('Confirma la nueva contraseña') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation" required>
+                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmación de contraseña" required>
                                     </div>
                                     @if ($errors->has('password_confirmation'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -233,7 +242,7 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
                         </div>

@@ -21,13 +21,19 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
+        //aqui solo esta mostrando el request 
+        //return $request;
         try {
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'extension' => $request->file->extension(),
+                //aqui se guarda en la bd
+                'telefono' => $request->$telefono,
                 'img' => $this->encode($request->file), 
+                'active' => 1
+
             ]);
             session()->flash('success','Usuario agregado');
             return back()->withInput();

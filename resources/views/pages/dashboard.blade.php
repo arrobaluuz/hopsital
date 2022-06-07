@@ -21,6 +21,8 @@
                                     <div class="col-7 col-md-8">
                                         <div class="numbers">
                                             <p class="card-category">{{$item->dia}} {{$item->hora}}</p>
+                                             <!-- aquí se agrega-->
+                                            <p class="card-category">{{$item->name_esp}}</p>
                                             <p class="card-title" style="font-size: 15pt !important">{{$item->doctor}}<p>
                                         </div>
                                     </div>

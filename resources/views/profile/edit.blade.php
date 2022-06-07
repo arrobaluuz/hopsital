@@ -184,6 +184,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">{{ __('telefono') }}</label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" name="telefono" class="form-control" placeholder="telefono" value="{{ auth()->user()->telefono }}" required>
+                                </div>
+                                @if ($errors->has('telefono'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
@@ -192,7 +205,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </form>
                 <form class="col-md-12" action="{{ route('profile.password') }}" method="POST">
                     @csrf

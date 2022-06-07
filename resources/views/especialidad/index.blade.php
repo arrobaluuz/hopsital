@@ -60,6 +60,7 @@
 @push('scripts')
     <script>
         /* datatables */
+        //hacer en caso de querer exportar en pdf
         $(document).ready( function () {
             $('#index-doctores').DataTable( {
 				dom: 'Bfrtip',
